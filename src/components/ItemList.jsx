@@ -1,6 +1,6 @@
 
 
-function ItemList({ items, onDelete }) {
+function ItemList({ items, onDelete, onAddToCart }) {
   return (
     <div className="item-list">
       {items.map((item) => (
@@ -10,11 +10,20 @@ function ItemList({ items, onDelete }) {
               <h3>{item.name}</h3>
               <span className="category-tag">{item.category}</span>
             </div>
-            <p>${item.price}</p>
+            <p className="item-price">${item.price}</p>
           </div>
-          <button className="delete-btn" onClick={() => onDelete(item.id)}>
+          {/* <button className="delete-btn" onClick={() => onDelete(item.id)}>
             Delete
           </button>
+          */}
+          <div className="button-group">
+            <button className="buy-btn" onClick={() => onAddToCart(item)}>
+              Add to Cart
+            </button>
+            <button className="delete-btn" onClick={() => onDelete(item.id)}>
+              Delete
+            </button>
+          </div>
         </div>
       ))}
     </div>

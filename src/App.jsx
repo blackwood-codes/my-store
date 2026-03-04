@@ -2,9 +2,22 @@ import { useState, useEffect } from 'react';
 import ItemForm from './components/ItemForm';
 import ItemList from './components/ItemList';
 import './App.css';
+import './components/Cart.jsx';
+import Cart from './components/Cart.jsx';
 
 function App() {
   //const [items, setItems] = useState([]);
+  const[cart, setCart] = useState([]);
+
+  const addToCart = (item) => {
+    setCart([...cart, item]);
+  };
+
+  const removeFromCart = (index) => {
+    const newCart = [...cart];
+    newCart.splice(index, 1);
+    setCart(newCart);
+  }
 
   const [items, setItems] = useState(() => {
     const savedItems = localStorage.getItem('marked_items');
@@ -45,7 +58,8 @@ function App() {
         />
       </div>
       {/* Pass filtered items to ItemList */}
-      <ItemList items={filteredItems} onDelete={deleteItem} />
+      <ItemList items={filteredItems} onDelete={deleteItem} onAddToCart={addToCart}/>
+      <Cart cartItems={cart} onRemove={removeFromCart} />
 
       {filteredItems.length === 0 && items.length > 0 && (
         <p style={{ textAlign: 'center', color: '#64748b' }}>No items match your search.</p>
