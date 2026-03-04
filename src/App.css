@@ -1,0 +1,93 @@
+/* App.css */
+:root {
+  --primary: #2563eb;
+  --danger: #ef4444;
+  --bg: #f8fafc;
+  --card: #ffffff;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1e293b;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Form Styling */
+form {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+/* List/Card Styling */
+.item-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.item-card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+}
+
+.item-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.item-info p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.delete-btn {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: var(--danger);
+  color: white;
+}
