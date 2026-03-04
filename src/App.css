@@ -26,7 +26,7 @@ form {
   background: var(--card);
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 6px -1px rgba(223, 214, 214, 0.1);
   display: flex;
   gap: 10px;
   margin-bottom: 2rem;
@@ -90,4 +90,158 @@ button[type="submit"] {
 .delete-btn:hover {
   background: var(--danger);
   color: white;
+}
+
+.search-container {
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  color: #1e293b;
+  transition: border-color 0.2s;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+
+/* The container for the inputs and button */
+.item-form {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 12px; /* Space between inputs */
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+/* The 'Item Name' should take up more room */
+.item-input {
+  flex: 2; 
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+/* The 'Price' can stay a bit smaller */
+.price-input {
+  flex: 0.5;
+  max-width: 100px;
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+.submit-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* The container for the inputs and button */
+.item-form {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 12px; /* Space between inputs */
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+/* The 'Item Name' should take up more room */
+.item-input {
+  flex: 2; 
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  color:#1e293b
+}
+
+/* The 'Price' can stay a bit smaller */
+.price-input {
+  flex: 0.5;
+  max-width: 100px;
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  color:#1e293b
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+.submit-btn:hover {
+  filter: brightness(1.1);
+}
+
+.category-select {
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  color:#1e293b;
+  cursor: pointer;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-tag {
+  background: #e0f2fe; /* Light blue */
+  color: #0369a1; /* Darker blue */
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+/* Optional: Different colors for different categories */
+.category-tag:contains('Furniture') { background: #fef3c7; color: #92400e; }
+
+/* This targets the box itself */
+select {
+  font-family: 'YourCustomFont', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+/* This targets the options (Limited support in Safari/Chrome) */
+select option {
+  font-family: 'YourCustomFont', sans-serif;
 }
