@@ -286,3 +286,21 @@ select option {
   display: flex;
   gap: 8px;
 }
+
+.stock-text {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.stock-text.out {
+  color: var(--danger);
+  font-weight: bold;
+}
+
+/* Style for the disabled button */
+.buy-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}

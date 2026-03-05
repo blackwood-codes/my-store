@@ -4,10 +4,11 @@ function ItemForm({ onAddItem }) {
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('Electronics');
+    const [stock, setStock] = useState(1);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onAddItem({ name, price, category });
+        onAddItem({ name, price, category, stock: Number(stock) });
         setName('');
         setPrice('');
     };
@@ -33,6 +34,7 @@ function ItemForm({ onAddItem }) {
         <option value="Other">Other</option>
       </select>
 
+      
       <input 
         className="price-input"
         type="number"
@@ -40,6 +42,15 @@ function ItemForm({ onAddItem }) {
         value={price} 
         onChange={(e) => setPrice(e.target.value)}
       />
+      <input
+        className="price-input"
+        type="number"
+        placeholder="Stock"
+        value={stock}
+        onChange={(e) => setStock(e.target.value)}
+        min="1"
+      />
+      
       <button type="submit" className="submit-btn">Post</button>
     </form>
     );

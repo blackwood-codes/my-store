@@ -8,10 +8,25 @@ import Cart from './components/Cart.jsx';
 function App() {
   //const [items, setItems] = useState([]);
   const[cart, setCart] = useState([]);
-
+/*
   const addToCart = (item) => {
     setCart([...cart, item]);
   };
+*/
+  const addToCart = (product) => {
+    if (product.stock <= 0) return;
+      
+      setCart([...cart, product]);
+
+      setItems(prevItems =>
+        prevItems.map(item =>
+          item.id === product.id
+          ? { ...item, stock: item.stock - 1 }
+          : item 
+        )
+      );
+    };
+
 
   const removeFromCart = (index) => {
     const newCart = [...cart];
