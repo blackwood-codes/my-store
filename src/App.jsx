@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link, Routes, Route } from 'react-router-dom';
 import ItemForm from './components/ItemForm';
 import ItemList from './components/ItemList';
 import './App.css';
@@ -59,26 +60,37 @@ function App() {
 );
 
   return (
-    <div>
-      <h1>Marketplace</h1>
-      <ItemForm onAddItem={addItem} />
-      {/* Search input */}
-      <div className="search-container">
-        <input
-          className="search-input"
-          type="text"
-          placeholder="Search items..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
-      {/* Pass filtered items to ItemList */}
-      <ItemList items={filteredItems} onDelete={deleteItem} onAddToCart={addToCart}/>
-      <Cart cartItems={cart} onRemove={removeFromCart} />
+    <div className="container">
+      {/* Navigation Bar */}
+      <nav className="navbar">
+        <Link to="/" className="nav-logo">Marketplace</Link>
+        <Link to="/cart" className="nav-cart">
+          🛒 Cart ({cart.length})
+        </Link>
+      </nav>
 
-      {filteredItems.length === 0 && items.length > 0 && (
-        <p style={{ textAlign: 'center', color: '#64748b' }}>No items match your search.</p>
-      )}
+      {/* Page Routing */}
+      <Routes>
+        <Route path="/" element={
+          <>
+            <ItemForm onAddItem={addItem} />
+            <div className="search-container">
+              <input 
+                type="text" 
+                placeholder="Search items..." 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+              />
+            </div>
+            <ItemList items={filteredItems} onDelete={deleteItem} onAddToCart={addToCart} />
+          </>
+        } />
+        
+        <Route path="/cart" element={
+          <Cart cartItems={cart} onRemove={removeFromCart} />
+        } />
+      </Routes>
     </div>
   );
 }

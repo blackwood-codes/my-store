@@ -18,7 +18,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 /* Form Styling */
@@ -124,8 +124,20 @@ button[type="submit"] {
   gap: 12px; /* Space between inputs */
   margin-bottom: 2rem;
   align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* Ensure inputs don't shrink smaller than a readable size */
+.item-input, .category-select, .price-input, .stock-input {
+  min-width: 70px; 
+}
+
+/* Make sure the name input takes most of the space */
+.item-input {
+  flex: 3;
+}
 /* The 'Item Name' should take up more room */
 .item-input {
   flex: 2; 
@@ -137,7 +149,7 @@ button[type="submit"] {
 /* The 'Price' can stay a bit smaller */
 .price-input {
   flex: 0.5;
-  max-width: 100px;
+  
   padding: 0.8rem;
   border: 1px solid #e2e8f0;
   border-radius: 6px;
@@ -303,4 +315,50 @@ select option {
   background: #cbd5e1;
   cursor: not-allowed;
   filter: grayscale(1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.nav-cart {
+  text-decoration: none;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.nav-cart:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
 }

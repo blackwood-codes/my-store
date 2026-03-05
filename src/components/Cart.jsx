@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 function Cart({ cartItems, onRemove }) {
+  const navigate = useNavigate();
   const total = cartItems.reduce((sum, item) => sum + Number(item.price), 0);
 
   return (
     <div className="cart-container">
+      <button onClick={() => navigate('/')} className="back-btn">
+        ← Back to Shop
+      </button>
       <h2>Your Cart ({cartItems.length})</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
